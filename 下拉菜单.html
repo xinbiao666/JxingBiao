@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .big {
+            width: 500px;
+            height: 60px;
+            margin: 50px auto;
+            background-color: pink;
+            line-height: 60px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .second {
+            float: left;
+            width: 60px;
+            text-align: center;
+        }
+
+        .son {
+            background-color: #d4d1d1;
+            border-bottom: 1px solid black;
+        }
+
+        .dis {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <ul class="father">
+            <li class="second">
+                微博
+                <ul class="dis">
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                </ul>
+            </li>
+            <li class="second">
+                微博
+                <ul class="dis">
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                </ul>
+            </li>
+            <li class="second">
+                微博
+                <ul class="dis">
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                </ul>
+            <li class="second">
+                微博
+                <ul class="dis">
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                    <li class="son">私信</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var bli = document.querySelectorAll('.second');
+        var dis = bli.children;
+        for (var i = 0; i < bli.length; i++) {
+            bli[i].onmouseover = function () {
+                // this.children[0].style.display = 'block';
+                this.querySelector('ul').style.display = 'block';
+            }
+
+            bli[i].onmouseout = function () {
+                this.children[0].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

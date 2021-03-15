@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复选框</title>
+    <style>
+        .havewords {
+            vertical-align: middle;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            border-spacing: 0;
+            border: 1px solid #111010;
+            text-align: center;
+        }
+
+        table thead tr td {
+            font-size: 8px;
+        }
+
+        td {
+            border: 1px solid #111010;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td><input type="checkbox" class="havewords">全选
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+                <td><input type="checkbox"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var allSele = document.querySelector('.havewords');
+        var single = document.querySelector('tbody').querySelectorAll('input');
+        allSele.onclick = function () {
+            for (var i = 0; i < single.length; i++) {
+                single[i].checked = this.checked;
+            }
+        }
+        for (var i = 0; i < single.length; i++) {
+            single[i].onclick = function () {
+                var flag = true;
+                for (var i = 0; i < single.length; i++) {
+                    if (!single[i].checked) {
+                        flag = false;
+                    }
+                    allSele.checked = flag;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

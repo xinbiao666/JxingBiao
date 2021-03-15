@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒计时</title>
+    <style>
+        .base {
+            width: 303px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+        .view {
+            float: left;
+            background-color: #333;
+            font-size: 50px;
+            color: #fff;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            border-right: 1px solid #000;
+            border-collapse: collapse;
+        }
+
+        .second {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base">
+        <div class="hour view">1</div>
+        <div class="minute view">2</div>
+        <div class="second view">3</div>
+    </div>
+    <script>
+        var downtime = +new Date('2021-3-10 17:00:00');
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        cutdown();
+        setInterval(cutdown, 1000);
+        function cutdown() {
+            var nowtime = +new Date;
+            var throughtime = (downtime - nowtime) / 1000;
+            var s = parseInt(throughtime % 60);
+            second.innerHTML = s < 10 ? '0' + s : s;
+            var m = parseInt(throughtime / 60 % 60);
+            minute.innerHTML = m < 10 ? '0' + m : m;
+            var h = parseInt(throughtime / 60 / 60);
+            hour.innerHTML = h < 10 ? '0' + h : h;
+        }
+    </script>
+</body>
+
+</html>

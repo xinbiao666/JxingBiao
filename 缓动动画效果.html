@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缓动动画效果</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .move {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="push1">点击→滑动盒子</button>
+    <button class="push2">点击←滑动盒子</button>
+    <div class="move"></div>
+    <script>
+        function animate(obj, target, fun) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var tem = (target - obj.offsetLeft) / 10;
+                var step = tem > 0 ? Math.ceil(tem) : Math.floor(tem);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    if (fun) {
+                        fun();
+                    }
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+            }, 15);
+        }
+        var push1 = document.querySelector('.push1');
+        var push2 = document.querySelector('.push2');
+        var move = document.querySelector('.move');
+        push1.addEventListener('click', function () {
+            animate(move, 800, function () {
+                move.style.backgroundColor = 'pink';
+            });
+        });
+        push2.addEventListener('click', function () {
+            animate(move, 0, function () {
+                move.style.backgroundColor = 'red';
+            });
+        })
+    </script>
+</body>
+
+</html>

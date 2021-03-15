@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淘宝移动滚轮固定框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            position: relative;
+            height: 200px;
+            width: 1020px;
+            margin: 0 auto 20px;
+            background-color: #ccc;
+        }
+
+        .middle {
+            position: relative;
+            height: 600px;
+            width: 1020px;
+            margin: 0 auto 20px;
+            background-color: pink;
+        }
+
+        .footer {
+            height: 1000px;
+            width: 1020px;
+            margin: 0 auto 20px;
+            background-color: #eba8a8;
+        }
+
+        .p {
+            position: absolute;
+            width: 30px;
+            height: 100px;
+            top: 400px;
+            left: 50%;
+            margin-left: 510px;
+            background-color: #f54444;
+        }
+
+        span {
+            position: absolute;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="p">
+        <span class="little">
+            返回顶部
+        </span>
+    </div>
+    <div class="head"></div>
+    <div class="middle">
+    </div>
+    <div class="footer"></div>
+    <script>
+        var head = document.querySelector('.head');
+        var p = document.querySelector('.p');
+        var middle = document.querySelector('.middle');
+        var footer = document.querySelector('.footer');
+        var span = document.querySelector('span');
+        var bannerTop = p.offsetTop - middle.offsetTop;
+        var footerTop = footer.offsetTop;
+        function animate(obj, target, fun) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var tem = (target - window.pageYOffset) / 10;
+                var step = tem > 0 ? Math.ceil(tem) : Math.floor(tem);
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+                    fun && fun();
+                }
+                //obj.style.top = obj.offsetTop + step + 'px';
+                window.scroll(0, window.pageYOffset + step)
+
+            }, 15);
+        }
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= middle.offsetTop) {
+                p.style.top = bannerTop + 'px';
+                p.style.position = 'fixed';
+            } else {
+                p.style.position = 'absolute';
+                p.style.top = '400px';
+            }
+            if (window.pageYOffset >= footer.offsetTop) {
+                span.style.display = 'block';
+            } else {
+                span.style.display = 'none';
+            }
+
+        })
+        span.addEventListener('click', function () {
+            animate(window, 0);
+        })
+    </script>
+
+
+
+</body>
+
+</html>

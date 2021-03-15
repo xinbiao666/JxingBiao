@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更换背景图片</title>
+    <style>
+        .base {
+            height: 100px;
+            width: 450px;
+            margin: 50px auto;
+            background-color: #fff;
+            text-align: center;
+
+        }
+
+        .base img {
+            width: 100px;
+            height: 70px;
+            margin-top: 15px;
+        }
+
+        body {
+            background: url('img/1.jpg') no-repeat center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base">
+        <img src="img/1.jpg" alt="">
+        <img src="img/2.jpg" alt="">
+        <img src="img/3.jpg" alt="">
+        <img src="img/4.jpg" alt="">
+    </div>
+    <script>
+        var is = document.querySelector('.base').querySelectorAll('img');
+        //console.log(is[0].src);
+        for (var i = 0; i < is.length; i++) {
+            is[i].onclick = function () {
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+        }
+    </script>
+</body>
+
+</html>

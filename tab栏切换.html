@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>切换菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0c0c0c;
+
+        }
+
+        .big {
+            margin: 30px auto;
+            background-color: #e0dbdb;
+            width: 700px;
+            height: 50px;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+            padding: 0 15px;
+            line-height: 50px;
+        }
+
+        ul li:hover {
+            background-color: #f70c0c;
+            color: #fff;
+        }
+
+        .area {
+            margin: 0 auto;
+            width: 700px;
+            height: 50px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="big">
+        <ul>
+            <li index="0"><a href="#">商品介绍</a></li>
+            <li index="1"> <a href="#">规格与包装</a></li>
+            <li index="2"> <a href="#">售后保障</a> </li>
+            <li index="3"> <a href="#">商品评价(5000)</a></li>
+            <li index="4"> <a href="#">手机社区</a> </li>
+        </ul>
+    </div>
+    <div class="area" style="display: block;">商品介绍模块</div>
+    <div class="area">规格与包装模块</div>
+    <div class="area">售后保障模块</div>
+    <div class="area">商品评价模块</div>
+    <div class="area">手机社区模块</div>
+    <script>
+        var li = document.querySelector('ul').querySelectorAll('li');
+        var area = document.querySelectorAll('.area');
+        // console.log(area[0].style);
+        for (var i = 0; i < li.length; i++) {
+            li[i].onclick = function () {
+                var index = this.getAttribute('index');
+                console.log(index);
+                for (var i = 0; i < area.length; i++) {
+                    area[i].style.display = 'none';
+                }
+                area[index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

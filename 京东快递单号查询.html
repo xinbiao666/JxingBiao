@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东快递查询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .base {
+            position: relative;
+            height: 100px;
+            width: 500px;
+            margin: 20px auto;
+            background-color: pink;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: 2px;
+            left: 177px;
+            height: 30px;
+            width: 50px;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, .3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+        }
+
+        .con::before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 30px;
+            width: 0px;
+            height: 0px;
+            border: 8px solid #000;
+            border-color: #fff transparent transparent;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入快递单号" class="jd">
+    </div>
+</body>
+
+</html>

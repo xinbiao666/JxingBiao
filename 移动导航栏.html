@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏</title>
+    <script src="js/缓动animate函数.js"></script>
+    <style>
+        .con {
+            position: relative;
+            width: 600px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: pink;
+            text-align: center;
+        }
+
+        ul {
+            position: absolute;
+            z-index: 1;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a0a0a;
+        }
+
+        span {
+            position: absolute;
+            top: 8px;
+            left: 45px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            var cloud = document.querySelector('.cloud');
+            var current = 0;
+            var con = document.querySelector('.con');
+            var li = con.querySelectorAll('li');
+            for (var i = 0; i < li.length; i++) {
+                li[i].addEventListener('mouseenter', function () {
+                    animate(cloud, this.offsetLeft - 9);
+                });
+                li[i].addEventListener('mouseleave', function () {
+                    animate(cloud, current);
+                });
+                li[i].addEventListener('click', function () {
+                    current = this.offsetLeft - 9;
+                })
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="con">
+        <span class="cloud"><img src="img/cloud.gif"></span>
+        <ul>
+            <li><a href="javascript:;">首页新闻</a></li>
+            <li><a href="javascript:;">首页新闻</a></li>
+            <li><a href="javascript:;">首页新闻</a></li>
+            <li><a href="javascript:;">首页新闻</a></li>
+            <li><a href="javascript:;">首页新闻</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

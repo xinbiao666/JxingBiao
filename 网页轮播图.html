@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/缓动animate函数.js"></script>
+    <script src="js/index.js"></script>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?tccism');
+            src: url('fonts/icomoon.eot?tccism#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?tccism') format('truetype'),
+                url('fonts/icomoon.woff?tccism') format('woff'),
+                url('fonts/icomoon.svg?tccism#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle
+        }
+
+        a {
+            color: #666;
+            text-decoration: none
+        }
+
+        a:hover {
+            color: #c81623
+        }
+
+        .focus {
+            position: relative;
+            width: 721px;
+            height: 454px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .focus ul li {
+            float: left;
+        }
+
+        .focus ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 600%;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 10px;
+            left: 310px;
+            background-color: rgb(250, 249, 249, .5);
+            border-radius: 5px;
+        }
+
+        .circle li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 10px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .left,
+        .right {
+            /* display: none; */
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            width: 24px;
+            height: 40px;
+            background: rgba(0, 0, 0, .3);
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            font-family: 'icomoon';
+            font-size: 18px;
+            z-index: 2;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .current {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="focus">
+        <a href="#" class="left"></a>
+        <a href="#" class="right"></a>
+        <ul>
+            <li>
+                <a href="#"><img src="img/focus.jpg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/focus1.jpg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/focus2.jpg"></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/focus3.jpg"></a>
+            </li>
+        </ul>
+        <ol class="circle">
+        </ol>
+    </div>
+</body>
+
+</html>

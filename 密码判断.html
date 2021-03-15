@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码判断</title>
+    <style>
+        .father {
+            width: 400px;
+            margin: 100px auto;
+        }
+
+        .father img {
+            vertical-align: middle;
+        }
+
+        .father input {
+            outline: none;
+        }
+
+        .words {
+            color: #ada7a7;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <input type="password" value="">
+        <img src="img/mess.png">
+        <span class="words">请输入6~16位密码</span>
+    </div>
+    <script>
+        var inp = document.querySelector('input');
+        var img = document.querySelector('img');
+        var words = document.querySelector('span');
+        inp.onfocus = function () {
+            img.src = 'img/mess.png';
+            words.innerText = '请输入6~16位密码';
+        }
+        inp.onblur = function () {
+            if (inp.value.length >= 6 && inp.value.length <= 16) {
+                img.src = 'img/right.png';
+                words.innerText = '';
+            } else {
+                img.src = 'img/wrong.png';
+                words.innerText = '输入密码不规范！';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态表格</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            width: 500px;
+            margin: 20px auto;
+            background-color: #ece9e9;
+        }
+
+        tr,
+        td {
+            border: 1px solid #141414;
+        }
+
+        .data {
+            width: 800px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="data">
+        姓名：<input type="text" class="name">
+        学科：<input type="text" class="lesson">
+        成绩：<input type="text" class="grade">
+        <button>添加到表格</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>学科</td>
+                <td>成绩</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var data = [{
+            name: '小明',
+            lesson: 'javascript',
+            grade: 100
+        }, {
+            name: '小红',
+            lesson: 'javascript',
+            grade: 90
+        }, {
+            name: '小军',
+            lesson: 'javascript',
+            grade: 80
+        }];
+
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < data.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (var k in data[i]) {
+                var tem = data[i][k];
+                var td = document.createElement('td');
+                td.innerHTML = tem;
+                tr.appendChild(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javaScript:;">删除</a>'
+            tr.appendChild(td);
+        }
+        var del = document.querySelectorAll('a');
+        for (var i = 0; i < del.length; i++) {
+            del[i].addEventListener('click', function () {
+                tbody.removeChild(this.parentNode.parentNode);
+            })
+        }
+
+
+        // var btn = document.querySelector('button');
+        // var nam = document.querySelector('.name');
+        // var subject = document.querySelectorAll('.lesson');
+        // var num = document.querySelectorAll('.grade');
+        // //var btn = fat.querySelector('button');
+        // btn.addEventListener('click', function () {
+        //     data.push({
+        //         name: nam.values,
+        //         lesson: subject.values,
+        //         grade: num.values
+
+        //     });
+        // })
+    </script>
+</body>
+
+</html>
